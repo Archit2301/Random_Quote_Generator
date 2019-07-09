@@ -23,7 +23,7 @@ var quotes = [
   {
     quote: 'It\'s not whether you get knocked down, it\'s whether you get up.',
     source:'Vince Lombardi',
-    tags: 'Motivational'
+    category: 'Motivational'
   },
   {
     quote: 'Whether you think you can or think you can\'t, you\'re right.',
@@ -33,7 +33,7 @@ var quotes = [
     quote: 'Instead of worrying about what you cannot control, shift your energy to what you can create.',
     source: 'Roy T. Bennett',
     citation: 'The Light in the Heart',
-    tags: 'Motivational'
+    category: 'Motivational'
   },
   {
     quote: 'Anyone who has never made a mistake has never tried anything new.',
@@ -52,19 +52,19 @@ var quotes = [
   {
     quote: 'You are not your resume, you are your work.',
     source: 'Seth Godin',
-    tags: 'Business'
+    category: 'Business'
   },
   {
     quote: 'Everybody wants to go to heaven, but nobody wants to die',
     source: 'Albert King',
-    tags: 'Humor'
+    category: 'Humor'
   },
   {
     quote: 'A ceiling is simply a floor from below',
     source: 'Elon Musk',
     citation: 'Twitter',
     year: '2017',
-    tags: 'Humor'
+    category: 'Humor'
   }
 ];
 
@@ -109,8 +109,8 @@ function printQuote() {
   if ( randomQuote.year ) {
     message += '<span class="year">'+ randomQuote.year + '</span>';
   }
-  if ( randomQuote.tags ){
-    message += '<span class="tags">'+ randomQuote.tags +'</span>'
+  if ( randomQuote.category ){
+    message += '<span class="category">'+ randomQuote.category +'</span>'
   }
   message += '</p>';
   var html = document.getElementById('quote-box');
