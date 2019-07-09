@@ -68,15 +68,22 @@ var quotes = [
   }
 ];
 
-for( var i = 0; i < quotes.length; i += 1 ) {
-  console.log(quotes[i].quote);
-}
+// Defining variable to store current value of random number.
+var checkNum;
 
-
-// function definition to create a random number and return it.
+/*
+ function definition to create a random number and return it.
+ Includes condition to check the repetition of the quotes
+*/
 
 function getRandomQuote() {
   var randNum = Math.floor(Math.random() * quotes.length) + 1;
+  if (checkNum === randNum) {
+    return getRandomQuote();
+  }
+  if (checkNum !== randNum ) {
+    checkNum = randNum;
+  }
   return quotes[randNum-1]; //Subtracting one from the random number to match the index value of the quote array.
 }
 
@@ -87,6 +94,9 @@ function randomColor() {
   var x = Math.floor(Math.random() * 256);
   var y = Math.floor(Math.random() * 256);
   var z = Math.floor(Math.random() * 256);
+  if ( x === 255 && y === 255 && z === 255 ) { //Checks if the random color is white. If yes then generates another color.
+    return randomColor();
+  }
   var bgColor = 'rgb(' + x + ',' + y + ',' + z +')';
   document.body.style.background = bgColor;
   document.getElementById('loadQuote').style.background = bgColor;
@@ -96,7 +106,7 @@ function randomColor() {
 /*
 function definition to print the quote and respective fields to the browser.
 The html to be rendered is stored in the variable named message.
-The function also calls the function to change the background color of the document
+The function also calls the function to change the background color of the document.
 */
 
 function printQuote() {
@@ -119,7 +129,7 @@ function printQuote() {
 }
 
 
-//The line below will introduce a random quote whenever the browser loads
+//The line below will introduce a random quote whenever the browser loads.
 printQuote();
 
 //When the "Show another quote" button is clicked, the event listener will be tiggered and printQuote function will be called.
