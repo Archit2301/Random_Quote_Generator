@@ -1,7 +1,3 @@
-/******************************************
-TechDegree Project 1 - A Random Quote Generator
-******************************************/
-
 /*
 Array of objects with properties (quote, source, citation, year and tags).
 tags property categorizes quotes
